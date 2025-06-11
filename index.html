@@ -1,53 +1,1406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class', // 👈 Enable class-based dark mode
+  };
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanjana Tanna's personal portfolio showcasing expertise in Data Science, Machine Learning, and Full Stack Web Development. Explore my projects, experience and skills.">
+  <meta name="keywords" content="Sanjana Tanna, Data Science, Machine Learning, Full Stack Developer, Web Development, Python, React, AI, Portfolio, Software Engineer, Mumbai">
+  <meta name="author" content="Sanjana Tanna">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourportfolio.com/">
+  <meta property="og:title" content="Sanjana Tanna | Data Science & Full Stack Portfolio">
+  <meta property="og:description" content="Sanjana Tanna's personal portfolio showcasing expertise in Data Science, Machine Learning, and Full Stack Web Development.">
+  <meta property="og:image" content="https://yourportfolio.com/assets/images/sanjana_formal.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourportfolio.com/">
+  <meta property="twitter:title" content="Sanjana Tanna | Data Science & Full Stack Portfolio">
+  <meta property="twitter:description" content="Sanjana Tanna's personal portfolio showcasing expertise in Data Science, Machine Learning, and Full Stack Web Development.">
+  <meta property="twitter:image" content="https://yourportfolio.com/assets/images/sanjana_formal.png">
   <title>Sanjana Tanna | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Optional: Custom scroll behavior for smooth scrolling when clicking nav links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Basic styling for hero section to illustrate layout */
+    .hero-section {
+      display: flex;
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      justify-content: center; /* Center content vertically */
+      align-items: center; /* Center content horizontally */
+      padding-top: 100px; /* Adjust based on header height */
+      min-height: 100vh; /* Make it full viewport height */
+      background-color: bg-gray-800; /* Dark blue background color, matching the image */
+      color: white; /* Default text color for the section */
+
+      /* --- Wave Background Styles --- */
+      background-image: url('assets/images/wave_background.png'); /* IMPORTANT: Update this path */
+      background-repeat: no-repeat;
+      background-position: left center; /* Adjust position as needed */
+      background-size: cover; /* Adjust as needed. 'cover' or '100% 100%' if full image */
+    }
+
+    /* Adjust for larger screens to have two columns */
+    @media (min-width: 768px) { /* md breakpoint in Tailwind */
+      .hero-section {
+        flex-direction: row; /* Two columns on larger screens */
+        justify-content: space-between;
+      }
+      .left-section {
+        text-align: left; /* Align text left in left section */
+        padding-left: 5rem; /* Add some padding on left */
+      }
+      .right-section {
+        padding-right: 5rem; /* Add some padding on right */
+      }
+    }
+
+
+    .left-section {
+      flex: 1;
+      padding: 2rem;
+      text-align: center; /* Center content by default */
+    }
+
+    .right-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .main-heading {
+      font-weight: bold;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      /* Tailwind classes for responsive font sizes */
+      font-size: 3rem; /* Default size */
+    }
+
+    @media (min-width: 768px) {
+      .main-heading {
+        font-size: 5rem; /* Larger on medium screens */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .main-heading {
+        font-size: 6rem; /* Even larger on large screens */
+      }
+    }
+
+    .highlight {
+      color: #f4f4f4; /* Lighter blue for highlight */
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      /* Tailwind classes for responsive font sizes */
+      font-size: 1rem; /* Default size */
+    }
+    @media (min-width: 768px) {
+      .subtitle {
+        font-size: 1.5rem; /* Larger on medium screens */
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column; /* Stack buttons on small screens */
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem; /* Add some space above buttons */
+    }
+
+    @media (min-width: 640px) { /* sm breakpoint in Tailwind */
+        .buttons {
+            flex-direction: row; /* Row of buttons on small-medium screens */
+        }
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform for hover animation */
+      text-align: center; /* Center text within button */
+      font-size: 1.125rem; /* Default button text size */
+    }
+
+    .btn:hover {
+      transform: translateY(-3px); /* Lift button on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    }
+
+    .gradient-btn {
+      background-color: #3b82f6;
+      color: white;
+      background-image: linear-gradient(to right, #3b82f6, #60a5fa);
+    }
+
+    .gradient-btn:hover {
+      background-color: #2563eb;
+      background-image: linear-gradient(to right, #2563eb, #3b82f6);
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="navbar">
-      <h1 class="logo">Sanjana Tanna</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+<body class="font-sans bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-white transition duration-500">
+
+
+  <header class="bg-white shadow-md p-4 fixed w-full z-20 top-0">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="assets/icons/favicon-16x16.png" alt="ST Logo" class="h-8 w-8">
+        <h1 class="text-2xl font-bold text-gray-900">Sanjana Tanna</h1>
+      </div>
+
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-600 transition-colors duration-300">About</a></li>
+        <li><a href="#resume" class="hover:text-blue-600 transition-colors duration-300">Resume</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 transition-colors duration-300">Projects</a></li>
+        <li><a href="#experience" class="hover:text-blue-600 transition-colors duration-300">Experience</a></li>
+        <li><a href="#extracurricular" class="hover:text-blue-600 transition-colors duration-300">Extracurricular</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 transition-colors duration-300">Contact</a></li>
+      </ul>
+   <!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+  <style>
+    html {
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    body {
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-white transition duration-500">
+
+  <!-- Toggle Switch -->
+  <div class="fixed top-4 right-4 z-50">
+    <label for="theme-switch" class="inline-flex items-center cursor-pointer">
+      <span class="mr-2 text-sm font-medium text-gray-900 dark:text-white">Dark Mode</span>
+      <input type="checkbox" id="theme-switch" class="sr-only">
+      <div class="w-11 h-6 bg-gray-200 rounded-full dark:bg-gray-600 relative">
+        <div class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300"></div>
+      </div>
+    </label>
+  </div>
+
+
+  <!-- Script to Toggle Theme -->
+  <script>
+    const themeSwitch = document.getElementById('theme-switch');
+    const html = document.documentElement;
+
+    // Set initial theme from localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+      themeSwitch.checked = true;
+    }
+
+    themeSwitch.addEventListener('change', () => {
+      if (themeSwitch.checked) {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+
+
+      <div class="hidden md:flex space-x-4">
+        <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://github.com/sanjanatanna" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 focus:ring-2 focus:ring-blue-500 rounded p-1">
+        <span class="sr-only">Open mobile menu</span>
+        <i class="fas fa-bars fa-xl"></i>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white mt-4 rounded-lg shadow-lg">
+      <ul class="flex flex-col space-y-3 p-4">
+        <li><a href="#about" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">About</a></li>
+        <li><a href="#resume" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">Resume</a></li>
+        <li><a href="#projects" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">Projects</a></li>
+        <li><a href="#experience" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">Experience</a></li>
+        <li><a href="#extracurricular" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">Extracurricular</a></li>
+        <li><a href="#contact" class="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded">Contact</a></li>
+      </ul>
+     
+
+      <div class="flex justify-center space-x-6 p-4 border-t border-gray-200">
+        <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-600">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://github.com/sanjanatanna" target="_blank" aria-label="GitHub" class="text-gray-600 hover:text-gray-900">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="mailto:sanjanatanna017@gmail.com" aria-label="Email" class="text-gray-600 hover:text-red-600">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
     </div>
   </header>
+<main>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <main>
-    <section id="about">
-      <!-- About Section will go here -->
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4c506d 0%, #1e3c72 25%, #242338 50%, #465c70 75%, #1e374c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Tech Grid Background */
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 136, 229, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Circuit Board Pattern */
+        .circuit-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(9, 1, 35, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(30, 136, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(33, 150, 243, 0.1) 0%, transparent 70%);
+            animation: circuitPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Dynamic Wave Animations */
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%231e88e5'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%232196f3'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%2342a5f5'/%3E%3C/svg%3E") repeat-x;
+            background-size: 1200px 120px;
+            animation: waveMove 15s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes waveMove {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-100px); }
+        }
+
+        /* Floating Tech Elements */
+        .tech-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .tech-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #42a5f5;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #42a5f5;
+            animation: techFloat 8s ease-in-out infinite;
+        }
+
+        .tech-element:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+            animation-duration: 6s;
+        }
+
+        .tech-element:nth-child(2) {
+            top: 40%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 8s;
+        }
+
+        .tech-element:nth-child(3) {
+            top: 70%;
+            left: 25%;
+            animation-delay: 4s;
+            animation-duration: 7s;
+        }
+
+        .tech-element:nth-child(4) {
+            top: 60%;
+            left: 70%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+
+        .tech-element:nth-child(5) {
+            top: 10%;
+            left: 60%;
+            animation-delay: 3s;
+            animation-duration: 5s;
+        }
+
+        @keyframes techFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0) scale(1);
+                box-shadow: 0 0 10px #42a5f5;
+            }
+            25% { 
+                transform: translateY(-30px) translateX(15px) scale(1.2);
+                box-shadow: 0 0 20px #1e88e5;
+            }
+            50% { 
+                transform: translateY(-60px) translateX(-10px) scale(0.8);
+                box-shadow: 0 0 15px #2196f3;
+            }
+            75% { 
+                transform: translateY(-30px) translateX(20px) scale(1.1);
+                box-shadow: 0 0 25px #42a5f5;
+            }
+        }
+
+        /* Data Stream Lines */
+        .data-stream {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #42a5f5, transparent);
+            animation: dataFlow 4s linear infinite;
+        }
+
+        .data-stream:nth-child(1) {
+            top: 10%;
+            left: 30%;
+            animation-delay: 0s;
+        }
+
+        .data-stream:nth-child(2) {
+            top: 50%;
+            left: 75%;
+            animation-delay: 1s;
+        }
+
+        .data-stream:nth-child(3) {
+            top: 30%;
+            left: 90%;
+            animation-delay: 2s;
+        }
+
+        @keyframes dataFlow {
+            0% { 
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            50% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Left Section */
+        .left-section {
+            flex: 1;
+            max-width: 50%;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Large Name Styling */
+        .main-heading {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 
+                2px 2px 4px rgb(255, 255, 255),
+                0 0 20px rgba(60, 64, 68, 0.3);
+            letter-spacing: -2px;
+            animation: nameGlow 3s ease-in-out infinite;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #f3f3f3 0%, #ffffff 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            animation: highlightShift 4s ease-in-out infinite;
+        }
+
+        @keyframes highlightShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            50% { 
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            border-radius: 2px;
+            animation: underlineElectric 2s ease-in-out infinite;
+        }
+
+        @keyframes underlineElectric {
+            0%, 100% { 
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            }
+            50% { 
+                box-shadow: 0 0 25px rgb(255, 255, 255);
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-btn {
+            background: linear-gradient(135deg, #0a2d4c 0%, #42a5f5 50%, #8a949d 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4);
+            border: 2px solid rgba(66, 165, 245, 0.3);
+        }
+
+        .gradient-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.6);
+            background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 50%, #1e88e5 100%);
+        }
+
+        .gradient-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .gradient-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Tech Separator Design */
+        .separator {
+            position: absolute;
+            top: 15%;
+            right: 0;
+            width: 3px;
+            height: 70%;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(66, 165, 245, 0.3) 10%, 
+                rgba(30, 136, 229, 0.8) 30%, 
+                rgba(33, 150, 243, 1) 50%, 
+                rgba(30, 136, 229, 0.8) 70%, 
+                rgba(66, 165, 245, 0.3) 90%, 
+                transparent 100%);
+            animation: separatorElectric 3s ease-in-out infinite;
+            border-radius: 2px;
+        }
+
+        .separator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #42a5f5 0%, #1e88e5 70%);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 20px rgba(66, 165, 245, 0.8),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: separatorCore 2s ease-in-out infinite;
+        }
+
+        .separator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 23px;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(66, 165, 245, 0.1) 50%, 
+                transparent 100%);
+            animation: separatorField 4s ease-in-out infinite;
+        }
+
+        @keyframes separatorElectric {
+            0%, 100% { 
+                opacity: 0.7;
+                box-shadow: 0 0 10px rgba(66, 165, 245, 0.5);
+            }
+            50% { 
+                opacity: 1;
+                box-shadow: 0 0 25px rgba(66, 165, 245, 1);
+            }
+        }
+
+        @keyframes separatorCore {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 20px rgba(66, 165, 245, 0.8),
+                    inset 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 35px rgba(66, 165, 245, 1),
+                    inset 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes separatorField {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Right Section */
+        .right-section {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Image Scroll Wrapper */
+        .image-scroll-wrapper {
+            height: calc(100vh - 120px);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.997);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(66, 165, 245, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(130, 122, 122, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 30px rgba(66, 165, 245, 0.2);
+            animation: containerGlow 5s ease-in-out infinite;
+        }
+
+        @keyframes containerGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 20px 40px rgba(255, 255, 255, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    0 0 30px rgba(66, 165, 245, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 25px 50px rgba(168, 162, 162, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 40px rgba(66, 165, 245, 0.4);
+            }
+        }
+
+        .scroll-track {
+            display: flex;
+            flex-direction: column;
+            animation: scrollUp 10s linear infinite;
+        }
+
+        .scroll-track img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(66, 165, 245, 0.2);
+        }
+
+
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-500px); }
+        }
+
+        .image-scroll-wrapper:hover .scroll-track {
+            animation-play-state: paused;
+        }
+        /* Wave Decoration */
+        .wave-decor {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            opacity: 0.15;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 50%;
+            animation: techWaveFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes techWaveFloat {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+                box-shadow: 0 0 20px rgba(66, 165, 245, 0.3);
+            }
+            50% { 
+                transform: translateY(-15px) rotate(180deg) scale(1.1);
+                box-shadow: 0 0 30px rgba(66, 165, 245, 0.5);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+            
+            .left-section,
+            .right-section {
+                max-width: 100%;
+                padding: 2rem 1rem;
+            }
+            
+            .left-section {
+                margin-bottom: 2rem;
+            }
+            
+            .main-heading {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+            
+            .image-scroll-wrapper {
+                height: 400px;
+                max-width: 320px;
+            }
+
+            .separator {
+                display: none;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .tech-elements,
+            .data-stream {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero-section">
+            <!-- Animated Tech Background -->
+            <div class="tech-grid"></div>
+            <div class="circuit-pattern"></div>
+            <div class="wave-bg"></div>
+            
+            <!-- Tech Elements -->
+            <div class="tech-elements">
+                <div class="tech-element"></div>
+                <div class="tech-element"></div>
+                <div class="tech-element"></div>
+                <div class="tech-element"></div>
+                <div class="tech-element"></div>
+                <div class="data-stream"></div>
+                <div class="data-stream"></div>
+                <div class="data-stream"></div>
+            </div>
+            
+            <div class="left-section">
+                <h1 class="main-heading animate__animated animate__fadeInUp">
+                    SANJANA<br><span class="highlight">TANNA</span>
+                </h1>
+                <p class="subtitle animate__animated animate__fadeInUp animate__delay-1s"><br>
+                    Data Science  |  CyberSecurity  |  UI/UX  |  Analyst  |  Management 
+                </p>
+                <div class="buttons animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#projects" class="btn gradient-btn">VIEW PROJECTS</a>
+                    <a href="assets/resume/SANJANA_TANNA_RESUME.pdf" class="btn gradient-btn" download>DOWNLOAD RESUME</a>
+                </div>
+                <div class="wave-decor"></div>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <div class="right-section">
+                <div class="image-scroll-wrapper">
+                    <div class="scroll-track">
+                        <img src="assets/images/scrollimages/scrollimage1.jpeg" alt="Food Project">
+                        <img src="assets/images/scrollimages/scrollimage2.jpg" alt="loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage3.jpg" alt="Food Project">
+                        <img src="assets/images/scrollimages/scrollimage8.jpeg" alt="Loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage10.jpeg" alt="Loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage6.jpeg" alt="Loan Prediction Project">
+                    </div>
+                </div>
+            </div>
+    </section>
+</main>
+
+<style>
+    /* Hero Section Layout */
+    .hero-section {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0 2rem;
+        gap: 2rem;
+    }
+    
+    /* Left Section - Content */
+    .left-section {
+        flex: 1;
+        max-width: 50%;
+        padding-right: 2rem;
+    }
+    
+    /* Right Section - Scrolling Images */
+    .right-section {
+        flex: -10;
+        max-width: 100%;
+        display: relative;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Updated Image Scroll Wrapper */
+    .image-scroll-wrapper {
+        height: calc(100vh);
+        width: 100%;
+        max-width: 400px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        background: #3c4854;
+    }
+    
+    .scroll-track {
+        display: flex;
+        flex-direction: column;
+        animation: scrollUp 4s linear infinite;
+    }
+    
+    .scroll-track img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+    
+    @keyframes scrollUp {
+        0% { 
+            transform: translateY(0); 
+        }
+        100% { 
+            transform: translateY(-500px);
+        }
+    }
+    
+    .image-scroll-wrapper:hover .scroll-track {
+        animation-play-state: paused;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-section {
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .left-section,
+        .right-section {
+            max-width: 100%;
+            padding-right: 0;
+        }
+        
+        .left-section {
+            margin-bottom: 2rem;
+        }
+        
+        .image-scroll-wrapper {
+            height: 400px;
+            max-width: 320px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .image-scroll-wrapper {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+</style>
+
+<main class="pt-8">
+  <section id="about" class="container mx-auto p-8 bg-white shadow-md rounded-lg mb-8 dark:bg-[#101827] dark:text-white">
+    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-6 border-b-4 border-blue-500 inline-block pb-2">About Me</h2>
+
+    <p class="text-lg leading-relaxed text-gray-900 dark:text-white mb-4">
+      I'm <strong>Sanjana Tanna</strong>, a detail-oriented and innovation-driven individual with a solid foundation in Computer Science and a specialization in Data Science. Currently pursuing a <strong>B.Tech in Computer Science and Engineering (Data Science)</strong> at Mukesh Patel School of Technology Management & Engineering (MPSTME, NMIMS), I am part of a 5-year coordinated initiative with <strong>Virginia Tech</strong>.
+    </p>
+
+    <p class="text-lg leading-relaxed text-gray-900 dark:text-white mb-4">
+      Course Details:
+      <ol class="list-decimal list-inside mt-2 mb-4  text-gray-900 dark:text-white">
+        <li><strong>B.Tech in Computer Science and Engineering (Data Science)</strong> from MPSTME, NMIMS</li>
+        <li><strong>BS in Business Information Technology</strong> with a specialization in Cybersecurity Management and Analytics from the Pamplin College of Business, Virginia Tech (STEM designated)</li>
+        <li><strong>MS in Business Administration</strong> with a concentration in Business Analytics from the Pamplin College of Business, Virginia Tech</li>
+      </ol>
+    </p>
+
+    <p class="text-lg leading-relaxed text-gray-700 dark:text-white mb-4">
+      I bring a unique blend of technical expertise and creative problem-solving, backed by hands-on experience in data analysis, machine learning, cybersecurity, and full-stack development. My project portfolio showcases work in smart IoT systems, retail shelf object detection using YOLOv8, and food image recognition with nutritional insights.
+    </p>
+
+    <p class="text-lg leading-relaxed text-gray-700 dark:text-white mb-4">
+      I am proficient in <strong>Python, SQL, Tableau, and web development technologies</strong>, and have worked extensively with tools such as <strong>Gradio, Cisco Packet Tracer</strong>, and <strong>transfer learning models</strong>. My leadership experience as the Vice President of the Analytika Data Science Club has empowered me to organize data-driven events, lead student teams, and build community around applied analytics.
+    </p>
+
+    <p class="text-lg leading-relaxed text-gray-700 dark:text-white mb-4">
+      In my free time, I enjoy <strong>exploring emerging technologies, reading about AI advancements</strong>, and challenging myself with creative coding problems. I’m passionate about leveraging data to drive business decisions and am eager to bring value to real-world applications through continuous learning and collaboration.
+    </p>
+
+    <div class="mt-6">
+      <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-300 mb-2">Basic Info</h3>
+      <ul class="text-lg text-gray-700 space-y-1 dark:text-gray-300">
+        <li><strong>Website:</strong> Portfolio in development</li>
+        <li><strong>Phone:</strong> +1 (XXX) XXX-XXXX</li>
+        <li><strong>City:</strong> Blacksburg, VA / Mumbai, India</li>
+        <li><strong>Age:</strong> 20</li>
+        <li><strong>Email:</strong> sanjana.tanna017@gmail.com</li>
+        <li><strong>Freelance:</strong> Available</li>
+      </ul>
+    </div>
+  </section>
+</main>
+ <section id="resume" class="container mx-auto p-8 bg-white shadow-md rounded-lg mb-8 dark:bg-gray-800 dark:text-white">
+  <h2 class="text-4xl font-extrabold text-gray-900 mb-6 dark:text-white">Resume</h2>
+  <p class="text-lg leading-relaxed text-gray-700 dark:text-white">
+    Here you can find details about my education, skills, and work history. Feel free to download my full resume.
+  </p>
+  <div class="mt-6">
+    <a href="assets/resume/SANJANA_TANNA_RESUME.pdf" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold" download="Sanjana_Tanna_Resume.pdf">
+      Download Resume <i class="fas fa-download ml-2"></i>
+    </a>
+  </div>
+<h3 class="text-2xl font-semibold text-gray-800 mt-10 mb-6 dark:text-white" >Skills</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+  <!-- Programming & Databases -->
+<div class=" bg-white text-black dark:text-white dark:bg-gray-900 p-6 rounded-lg shadow-md dark:hover:bg-gray-600 hover:bg-gray-200 hover:text-black transition duration-300 transform hover:scale-105">
+  <h4 class="text-xl font-semibold mb-4">💻 Programming & Databases</h4>
+  <div class="flex flex-wrap gap-3">
+    <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-700 hover:text-white transition">Python</span>
+    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-yellow-600 hover:text-white transition">JavaScript</span>
+    <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-green-600 hover:text-white transition">SQL</span>
+    <span class="bg-emerald-100 text-emerald-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition">MongoDB</span>
+    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-red-600 hover:text-white transition">C++</span>
+  </div>
+</div>
+
+<div class=" bg-white  text-black dark:text-white dark:bg-gray-900 p-6 rounded-lg shadow-md dark:hover:bg-gray-600 hover:bg-gray-200 hover:text-black transition duration-300 transform hover:scale-105">
+  <h4 class="text-xl font-semibold mb-4">📦 Libraries & Frameworks</h4>
+  <div class="flex flex-wrap gap-3">
+    <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-orange-600 hover:text-white transition">TensorFlow</span>
+    <span class="bg-pink-100 text-pink-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-pink-600 hover:text-white transition">Keras</span>
+    <span class="bg-lime-100 text-lime-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-lime-600 hover:text-white transition">Scikit-learn</span>
+    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-indigo-600 hover:text-white transition">NumPy</span>
+    <span class="bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-teal-600 hover:text-white transition">Pandas</span>
+    <span class="bg-sky-100 text-sky-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-sky-600 hover:text-white transition">React</span>
+    <span class="bg-lime-100 text-lime-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-lime-600 hover:text-white transition">Node.js</span>
+    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-700 hover:text-white transition">Tailwind CSS</span>
+    <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:text-white transition">HTML & CSS</span>
+  </div>
+</div>
+
+<!-- Data Science & Visualization -->
+<div class=" bg-white  text-black dark:text-white dark:bg-gray-900 p-6 rounded-lg shadow-md dark:hover:bg-gray-600 hover:bg-gray-200 hover:text-black transition duration-300 transform hover:scale-105">
+  <h4 class="text-xl font-semibold mb-4">📊 Data Science & Visualization</h4>
+  <div class="flex flex-wrap gap-3">
+    <span class="bg-violet-100 text-violet-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-violet-600 hover:text-white transition">Machine Learning</span>
+    <span class="bg-fuchsia-100 text-fuchsia-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-fuchsia-600 hover:text-white transition">Deep Learning</span>
+    <span class="bg-rose-100 text-rose-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-rose-600 hover:text-white transition">Statistical Analysis</span>
+    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-yellow-600 hover:text-white transition">Data Cleaning</span>
+    <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-cyan-600 hover:text-white transition">Data Storytelling</span>
+    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-indigo-600 hover:text-white transition">Power BI</span>
+    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-700 hover:text-white transition">Tableau</span>
+    <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-green-600 hover:text-white transition">Matplotlib</span>
+    <span class="bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-teal-600 hover:text-white transition">Seaborn</span>
+  </div>
+</div>
+
+<!-- Tools & Platforms -->
+<div class=" bg-white  text-black dark:text-white dark:bg-gray-900 p-6 rounded-lg shadow-md dark:hover:bg-gray-600 hover:bg-gray-200 hover:text-black transition duration-300 transform hover:scale-105">
+  <h4 class="text-xl font-semibold mb-4">🛠️ Tools & Platforms</h4>
+  <div class="flex flex-wrap gap-3">
+    <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:text-white transition">Git</span>
+    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-yellow-600 hover:text-white transition">Jupyter Notebook</span>
+    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-indigo-600 hover:text-white transition">VS Code</span>
+    <span class="bg-emerald-100 text-emerald-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition">Cisco Packet Tracer</span>
+    <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-green-600 hover:text-white transition">Microsoft Excel</span>
+    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-red-600 hover:text-white transition">GitHub</span>
+    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-700 hover:text-white transition">GCP</span>
+  </div>
+</div>
+
+</div>
     </section>
 
-    <section id="projects">
-      <!-- Projects Section will go here -->
+   <section id="projects" class="container mx-auto p-8 bg-white shadow-md rounded-lg mb-8 dark:bg-gray-900 dark:text-white">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-6 dark:text-white">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:text-white">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/FOOD PROJECT.jpg" alt="Food Image Recognition Model" class="w-full h-56 object-cover dark:text-white">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://github.com/sanjanatanna/FoodRecognition" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+              <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">MobileNetV2</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">CNN</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">FOOD IMAGE RECOGNITION</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">A deep learning project using MobileNetV2 to classify food images across 35 categories with 75% accuracy. It retrieves nutritional information for each dish, enabling smart diet tracking and healthcare insights.</p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sanjanatanna/FoodRecognition" target="_blank" class="text-gray-600 hover:underline flex items-center dark:text-white">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/retail object.jpeg" alt="Retail Object Detection using YOLOv8" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://huggingface.co/spaces/sanjanatanna/ObjectDetectionTool" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Python</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">YoloV8</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">OpenCV</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">RETAIL OBJECT DETECTION</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">A YOLOv8-based object detection project designed to identify and classify products on retail shelves for inventory management and shelf analytics. It features real-time detection, object counting, and a user-friendly Gradio interface deployed on Hugging Face.</p>
+            <div class="flex space-x-4">
+              <a href="https://huggingface.co/spaces/sanjanatanna/ObjectDetectionTool" target="_blank" class="text-blue-600 hover:underline flex items-center dark:text-white">
+                Live Demo <i class="fas fa-external-link-alt ml-1"></i>
+              </a>
+              <a href="https://github.com/sanjanatanna/Object-Detection-Using-Yolov8" target="_blank" class="text-gray-600 hover:underline flex items-center dark:text-white">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/sprinklerirrigation.jpg" alt="Smart Sprinkler Irrigation System Simulation" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://github.com/sanjanatanna/SmartIrrigationSystemUsingCiscoPacketTracer" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">IoT Simulation</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Cisco Packet Tracer</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Automation</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">SMART IRRIGATION SYSTEM USING CISCO PACKET TRACER</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">This project simulates a Smart Irrigation System using Cisco Packet Tracer, integrating IoT devices like soil moisture sensors, water level monitors, and automated sprinklers. It enables efficient water usage through real-time monitoring and automated irrigation control via a smartphone interface.</p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sanjanatanna/SmartIrrigationSystemUsingCiscoPacketTracer" target="_blank" class="text-gray-600 dark:text-white hover:underline flex items-center">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/big mart sales project.jpg" alt="Big Mart Sales Prediction Model" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://github.com/sanjanatanna/BigMartSales" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Python</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Scikit-learn</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Ensemble Learning</span>
+              <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Hyperparameter Tuning</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">BIG MART SALES PREDICTION</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">A machine learning project to predict product sales across different Big Mart stores using historical sales data. Helps improve inventory management and strategic planning through data-driven forecasting.</p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sanjanatanna/BigMartSales" target="_blank" class="text-gray-600 dark:text-white hover:underline flex items-center">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/gaming panel project.jpg" alt="Browser-based Gaming Panel" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://github.com/sanjanatanna/GamingPanel" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">HTML</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">CSS3</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">GAMING PANEL</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">A browser based gaming dashboard that allows users to play classic games like Snake, Hangman (with visual stages), and Sudoku all accessible from a single HTML interface.</p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sanjanatanna/GamingPanel" target="_blank" class="text-gray-600 hover:underline flex items-center dark:text-white">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="relative">
+            <img src="assets/images/PROJECTS/loan prediction project.jpg" alt="Loan Prediction System" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://github.com/sanjanatanna/Loan_Prediction" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold">View Project</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Python</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Gradient Boosting</span>
+              <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">GridSearchCV</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 dark:text-white">LOAN PREDICTION SYSTEM</h3>
+            <p class="text-gray-700 text-sm mb-4 dark:text-white">A machine learning project to predict loan eligibility for applicants based on their personal and financial information. Helps automate decision-making for Dream Housing Finance Company by classifying applications as eligible or not in real-time.</p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sanjanatanna/Loan_Prediction" target="_blank" class="text-gray-600 dark:text-white hover:underline flex items-center">
+                GitHub Repo <i class="fab fa-github ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="experience">
-      <!-- Experience Section will go here -->
-    </section>
+    <section id="experience" class="container mx-auto p-8 bg-white dark:bg-gray-900 dark:text-white shadow-md rounded-lg mb-8 dark:bg-[#0f172a] dark:text-white">
+  <h2 class="text-4xl font-extrabold text-gray-900 mb-6 dark:text-white">Experience</h2>
+  <p class="text-lg leading-relaxed text-gray-700 mb-8 dark:text-white">
+    Here's a glimpse into my professional journey and contributions.
+  </p>
+  <div class="space-y-8">
+    <div class="border-l-4 border-blue-600 pl-4 ">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Data Analyst and Frontend Intern</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Kidlet - Better assessments, better understanding | Mumbai, Maharashtra</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">May 2024 – Aug 2024</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Analyzed user behavior data to identify key trends and actionable insights to inform product enhancements.</li>
+        <li>Achieved a 15% improvement in user engagement through data-driven UI/UX optimizations across the platform.</li>
+        <li>Collaborated with cross-functional teams to integrate analytical findings into new frontend features.</li>
+        <li>Built and maintained responsive web components using React.js, Node.js, and Figma-based prototypes.</li>
+      </ul>
+    </div>
+    <div class="border-l-4 border-blue-600 pl-4 ">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Volunteer – Content & Design</h3>
+      <p class="text-lg text-gray-700 dark:text-white">VKS Sharanya Welfare Society | Mumbai, Maharashtra</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">June 2023 – Aug 2023</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Drafted professional outreach emails and internal communication for ongoing welfare campaigns.</li>
+        <li>Created detailed reports on event participation, impact statistics, and campaign effectiveness.</li>
+        <li>Designed visually engaging posters, banners, and campaign signs to boost outreach visibility.</li>
+        <li>Supported community initiatives focused on women and child welfare through digital and offline efforts.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <section id="resume">
-      <!-- Resume Section will go here -->
-    </section>
 
-    <section id="contact">
-      <!-- Contact Section will go here -->
-    </section>
+    <section id="extracurricular" class="container mx-auto p-8 bg-white dark:bg-gray-900 dark:text-white shadow-md rounded-lg mb-8 dark:bg-[#0f172a] dark:text-white">
+  <h2 class="text-4xl font-extrabold text-gray-900 mb-6 dark:text-white">Extracurricular Activities</h2>
+  <p class="text-lg leading-relaxed text-gray-700 mb-8 dark:text-white">
+    Beyond academics and professional roles, I'm actively involved in various community and technical initiatives.
+  </p>
+  <div class="space-y-8">
+
+    <div class="border-l-4 border-blue-600 pl-4">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Vice President – Outreach</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Analytika, Data Science Committee | SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering, Mumbai</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">Aug 2023 – Present</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Led strategy and communication for department-wide data science initiatives and flagship events like PLAYDATA 3.0.</li>
+        <li>Expanded outreach across multiple campuses, increasing event participation by 40% through innovative engagement techniques.</li>
+        <li>Collaborated with internal teams to design pre-event surveys and post-event analytics to guide future planning.</li>
+      </ul>
+    </div>
+
+    <div class="border-l-4 border-blue-600 pl-4 dark:text-white">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Event Head – Data Hunt</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Analytika, Data Science Committee | SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering, Mumbai</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">Feb 2024 – March 2024</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Conceptualized and organized “Data Hunt,” a competitive team-based data exploration game with 150+ participants.</li>
+        <li>Designed multi-stage problem statements integrating real-world datasets to test analytical and visualization skills.</li>
+        <li>Handled logistics, volunteer coordination, and real-time leaderboard tracking for a seamless experience.</li>
+      </ul>
+    </div>
+
+    <div class="border-l-4 border-blue-600 pl-4 dark:text-white">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Sub-Head – Public Relations</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Analytika, Data Science Committee | SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering, Mumbai</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">Jan 2023 – July 2023</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Drafted creative promotional content and managed all official communications across Instagram, LinkedIn, and WhatsApp.</li>
+        <li>Increased online engagement by 30% through targeted campaigns and strategic collaborations.</li>
+        <li>Built a strong brand identity for events, collaborating with the design and outreach teams to ensure cohesive messaging.</li>
+      </ul>
+    </div>
+
+    <div class="border-l-4 border-blue-600 pl-4">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Executive – Technology</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Analytika, Data Science Committee | SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering, Mumbai</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">Sept 2022 – Dec 2022</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Built backend systems and analytics dashboards to support student data clustering for personalized matchmaking events.</li>
+        <li>Managed and deployed internal tools using Python, Excel, and Google Sheets automation.</li>
+        <li>Collaborated with the Design and Survey teams to enhance the tech infrastructure for PLAYDATA and other events.</li>
+      </ul>
+    </div>
+
+    <div class="border-l-4 border-blue-600 pl-4">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Executive – Performing Arts</h3>
+      <p class="text-lg text-gray-700 dark:text-white">Sattva, Cultural Fest | SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering, Mumbai</p>
+      <p class="text-md text-gray-600 mb-2 dark:text-white">Jan 2023 – March 2023</p>
+      <ul class="list-disc list-inside text-gray-700 space-y-1 dark:text-white">
+        <li>Coordinated stage and backstage activities for multiple performing arts events with 300+ attendees.</li>
+        <li>Liaised with performers and sponsors, ensuring seamless execution of cultural shows and music nights.</li>
+        <li>Managed time slots, technical setups, and rehearsals to uphold event quality and flow.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<section id="contact" class="container mx-auto p-8 bg-white dark:bg-gray-900 shadow-md rounded-lg mb-8 dark:bg-[#0f172a] dark:text-white">
+  <h2 class="text-4xl font-extrabold text-gray-900 mb-6 text-center dark:text-white">Contact Me</h2>
+  <p class="text-lg leading-relaxed text-gray-700 mb-10 text-center max-w-2xl mx-auto dark:text-white">
+    Have a question or want to collaborate? Feel free to reach out! I'm always open to new opportunities.
+  </p>
+
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
+    
+    <!-- Left: Contact Info and Form -->
+    <div class="flex-1 w-full">
+      <div class="flex flex-col space-y-6 mb-8">
+        <div class="flex items-center space-x-4">
+          <i class="fas fa-envelope fa-2x text-blue-600 dark:text-white"></i>
+          <a href="mailto:sanjanatanna017@gmail.com" class="text-lg text-gray-700  dark:text-white hover:text-blue-600">sanjanatanna017@gmail.com</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <i class="fab fa-linkedin fa-2x text-blue-600 dark:text-white"></i>
+          <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" class="text-lg  dark:text-white text-gray-700 hover:text-blue-600">LinkedIn Profile</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <i class="fab fa-github fa-2x text-blue-600 dark:text-white"></i>
+          <a href="https://github.com/sanjanatanna" target="_blank" class="text-lg text-gray-700 dark:text-white hover:text-blue-600">GitHub Profile</a>
+        </div>
+        
+      </div>
+
+      <div class="w-full">
+        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Send a Message</h3>
+        <form action="#" method="POST" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Name</label>
+            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 dark:text-black focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white">Email</label>
+            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 dark:text-black focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-white">Message</label>
+            <textarea id="message" name="message" rows="5" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 dark:text-black focus:border-blue-500" required></textarea>
+          </div>
+          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            Send Message <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right: Profile Image -->
+    <div class="flex-shrink-0 w-full lg:w-[300px]">
+      <img src="assets/images/sanjana_formal.png" alt="Sanjana Tanna" class="rounded-xl shadow-lg object-cover w-full h-auto">
+    </div>
+
+  </div>
+</section>
+
+
   </main>
 
-  <footer>
-    <p>© 2025 Sanjana Tanna</p>
+  <footer class="bg-gray-800 text-white p-6 text-center">
+    <div class="container mx-auto">
+      <p>&copy; 2025 Sanjana Tanna. All rights reserved.</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors duration-300">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://github.com/sanjanatanna" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition-colors duration-300">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="mailto:sanjanatanna017@gmail.com" aria-label="Email" class="text-gray-400 hover:text-white transition-colors duration-300">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      var mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(item => {
+      item.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+          </script>
+
 </body>
 </html>
