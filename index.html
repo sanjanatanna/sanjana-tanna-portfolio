@@ -195,10 +195,10 @@
       </label>
 
       <!-- Social Icons -->
-      <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" aria-label="LinkedIn" class="text-white hover:text-blue-600 transition-colors duration-300">
+      <a href="https://www.linkedin.com/in/sanjana-tanna" target="_blank" aria-label="LinkedIn" class="dark:text-white text-black hover:text-blue-600 transition-colors duration-300">
         <i class="fab fa-linkedin fa-lg"></i>
       </a>
-      <a href="https://github.com/sanjanatanna" target="_blank" aria-label="GitHub" class="ml-2 text-white hover:text-gray-900 transition-colors duration-300">
+      <a href="https://github.com/sanjanatanna" target="_blank" aria-label="GitHub" class="ml-2 dark:text-white text-black hover:text-gray-900 transition-colors duration-300">
         <i class="fab fa-github fa-lg"></i>
       </a>
     </div>
@@ -231,25 +231,44 @@
 
   <!-- Script to Toggle Theme -->
   <script>
-    const themeSwitch = document.getElementById('theme-switch');
-    const html = document.documentElement;
+  const themeSwitch = document.getElementById('theme-switch');
+  const html = document.documentElement;
+  const themeLabel = document.querySelector('label[for="theme-switch"] span');
 
-    // Set initial theme from localStorage
-    if (localStorage.getItem('theme') === 'dark') {
+  // Load saved theme or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    html.classList.add('dark');
+    themeSwitch.checked = true;
+    themeLabel.textContent = 'Light Mode';
+  } else {
+    html.classList.remove('dark');
+    themeSwitch.checked = false;
+    themeLabel.textContent = 'Dark Mode';
+  }
+
+  // Toggle on click
+  themeSwitch.addEventListener('change', () => {
+    if (themeSwitch.checked) {
       html.classList.add('dark');
-      themeSwitch.checked = true;
+      localStorage.setItem('theme', 'dark');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      themeLabel.textContent = 'Dark Mode';
     }
+  });
+</script>
+<style>
+  /* Moves the toggle dot when checked */
+  #theme-switch:checked + div .dot {
+    transform: translateX(1.25rem); /* Moves dot to right */
+  }
+</style>
 
-    themeSwitch.addEventListener('change', () => {
-      if (themeSwitch.checked) {
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        html.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
 
 
      
@@ -360,9 +379,9 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: #42a5f5;
+            background: #152736;
             border-radius: 50%;
-            box-shadow: 0 0 10px #42a5f5;
+            box-shadow: 0 0 10px #273e52;
             animation: techFloat 8s ease-in-out infinite;
         }
 
@@ -404,15 +423,15 @@
         @keyframes techFloat {
             0%, 100% { 
                 transform: translateY(0) translateX(0) scale(1);
-                box-shadow: 0 0 10px #42a5f5;
+                box-shadow: 0 0 10px #202e39;
             }
             25% { 
                 transform: translateY(-30px) translateX(15px) scale(1.2);
-                box-shadow: 0 0 20px #1e88e5;
+                box-shadow: 0 0 20px #22303c;
             }
             50% { 
                 transform: translateY(-60px) translateX(-10px) scale(0.8);
-                box-shadow: 0 0 15px #2196f3;
+                box-shadow: 0 0 15px #24333f;
             }
             75% { 
                 transform: translateY(-30px) translateX(20px) scale(1.1);
@@ -825,8 +844,6 @@
                     SANJANA<br><span class="highlight">TANNA</span>
                 </h1>
                 <p class="subtitle animate__animated animate__fadeInUp animate__delay-1s"><br>
-              
-<br>
                     Data Science  |  CyberSecurity  |  UI/UX  |  Analyst  |  Management 
                 </p>
                 <div class="buttons animate__animated animate__fadeInUp animate__delay-2s">
@@ -839,8 +856,15 @@
             <div class="separator"></div>
             
             <div class="right-section">
-                <div class="image-scroll-wrapper">
+                <div class="image-scroll-wrapper overflow-hidden">
                     <div class="scroll-track">
+                        <img src="assets/images/scrollimages/scrollimage1.jpeg" alt="Food Project">
+                        <img src="assets/images/scrollimages/scrollimage2.jpg" alt="loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage3.jpg" alt="Food Project">
+                        <img src="assets/images/scrollimages/scrollimage8.jpeg" alt="Loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage10.jpeg" alt="Loan Prediction Project">
+                        <img src="assets/images/scrollimages/scrollimage6.jpeg" alt="Loan Prediction Project">
+
                         <img src="assets/images/scrollimages/scrollimage1.jpeg" alt="Food Project">
                         <img src="assets/images/scrollimages/scrollimage2.jpg" alt="loan Prediction Project">
                         <img src="assets/images/scrollimages/scrollimage3.jpg" alt="Food Project">
@@ -911,7 +935,7 @@
             transform: translateY(0); 
         }
         100% { 
-            transform: translateY(-500px);
+            transform: translateY(-50%);
         }
     }
     
@@ -1337,7 +1361,8 @@
 
       <div class="w-full">
         <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Send a Message</h3>
-        <form action="#" method="POST" class="space-y-4">
+        <form action="https://formsubmit.co/sanjana.tanna017@gmail.com" method="POST" class="space-y-4">
+
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Name</label>
             <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 dark:text-black focus:border-blue-500" required>
